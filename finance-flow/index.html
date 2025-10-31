@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proposta de Projeto — Finance Flow</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS principal (dentro de src/) -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand fw-bold text-success" href="#">
+            <i class="bi bi-diagram-3-fill me-2"></i>Projeto de Sistemas
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#proposta">Proposta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#escopo">Escopo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container my-5">
+      <section class="text-center mb-5">
+        <h1 class="display-6 fw-bold text-success-emphasis">
+          Documento de Proposta do Projeto
+        </h1>
+        <p class="lead text-muted mt-2">
+          Finance Flow — João Vitor &nbsp;•&nbsp; Douglas
+        </p>
+      </section>
+
+      <!-- Proposta -->
+      <section id="proposta" class="mb-5">
+        <h2 class="h4 fw-bold mb-3 section-title">Problema Identificado</h2>
+
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <p class="mb-3">
+              Dificuldade em acompanhar e controlar os gastos pessoais no dia a
+              dia, resultando em:
+            </p>
+            <ul class="mb-0">
+              <li>Surpresas com saldo</li>
+              <li>Dificuldade em identificar para onde o dinheiro está indo</li>
+              <li>Falta de conscientização sobre gastos por categoria</li>
+              <li>
+                Impossibilidade de estabelecer metas financeiras realistas
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="h4 fw-bold mb-3 section-title">Solução Proposta</h2>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <p class="mb-3">
+              Aplicativo simples e intuitivo para controle de despesas pessoais
+              que permitirá:
+            </p>
+            <ul class="mb-0">
+              <li>Registrar gastos e receitas de forma rápida</li>
+              <li>Categorizar transações</li>
+              <li>Visualizar relatório resumido por categoria</li>
+              <li>Acompanhar saldo atual</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Escopo -->
+      <section id="escopo" class="mb-5">
+        <h2 class="h4 fw-bold mb-4 section-title">Escopo do Projeto</h2>
+
+        <div class="accordion shadow-sm" id="escopoAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="incluiHeading">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#incluiCollapse"
+                aria-expanded="true"
+                aria-controls="incluiCollapse"
+              >
+                <i class="bi bi-check2-circle me-2 text-success"></i> Inclui
+              </button>
+            </h2>
+            <div
+              id="incluiCollapse"
+              class="accordion-collapse collapse show"
+              aria-labelledby="incluiHeading"
+              data-bs-parent="#escopoAccordion"
+            >
+              <div class="accordion-body">
+                <ul class="mb-0">
+                  <li>Cadastro manual de transações</li>
+                  <li>Categorização básica</li>
+                  <li>Visualização de extrato simples</li>
+                  <li>Cálculo automático do saldo</li>
+                  <li>Relatório por categoria</li>
+                  <li>Notificação push</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="naoIncluiHeading">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#naoIncluiCollapse"
+                aria-expanded="false"
+                aria-controls="naoIncluiCollapse"
+              >
+                <i class="bi bi-x-circle me-2 text-danger"></i> Não inclui
+              </button>
+            </h2>
+            <div
+              id="naoIncluiCollapse"
+              class="accordion-collapse collapse"
+              aria-labelledby="naoIncluiHeading"
+              data-bs-parent="#escopoAccordion"
+            >
+              <div class="accordion-body">
+                <ul class="mb-0">
+                  <li>Sincronização com conta bancária</li>
+                  <li>Login de usuário complexo</li>
+                  <li>Orçamentos avançados</li>
+                  <li>Geração de relatórios em PDF</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-5">
+          <button id="btnSemana2" class="btn btn-success shadow-lg">
+            Semana 2 <i class="bi bi-arrow-right-circle ms-2"></i>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-4 mt-5 bg-light">
+      <p class="mb-0 small text-muted">
+        Material produzido para projeto da disciplina Projeto e Desenvolvimento de Sistemas - IFSP Câmpus São João da Boa Vista.
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS principal (dentro de src/) -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

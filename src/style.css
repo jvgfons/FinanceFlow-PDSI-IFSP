@@ -58,3 +58,21 @@ body{
   transform: translateX(5px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+
+/* --- Seção Brainstorm --- */
+#brainstorm img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+#brainstorm img:hover {
+  transform: scale(1.02);
+}
+
+#brainstorm p {
+  color: var(--ifsp-gray);
+  font-size: 0.95rem;
+}

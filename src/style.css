@@ -1,78 +1,83 @@
 /* Fonte e paleta base (estilo do exemplo) */
-:root{
-  --ifsp-green:#198754;
-  --ifsp-green-dark:#146c43;
-  --ifsp-gray:#6c757d;
+:root {
+  --ifsp-green: #198754;
+  --ifsp-green-dark: #146c43;
+  --ifsp-gray: #6c757d;
 }
 
-html,body{
-  height:100%;
+html,
+body {
+  height: 100%;
 }
 
-body{
-  font-family:'Inter',sans-serif;
-  background-color:#f8f9fa; /* Light gray background */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
 }
 
 /* Navbar */
-.navbar{
-  box-shadow:0 2px 4px rgba(0,0,0,.05);
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Título de seção com barra lateral verde */
-.section-title{
-  border-left:5px solid var(--ifsp-green);
-  padding-left:1rem;
+.section-title {
+  border-left: 5px solid var(--ifsp-green);
+  padding-left: 1rem;
 }
 
 /* Acordeão ativo com leve destaque */
-.accordion-button:not(.collapsed){
-  background-color:rgba(25,135,84,0.1);
-  color:var(--ifsp-green-dark);
-  box-shadow:inset 0 -1px 0 rgba(0,0,0,.125);
+.accordion-button:not(.collapsed) {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: var(--ifsp-green-dark);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 
 /* Cartões com efeito hover suave (mantendo o estilo do exemplo) */
-.card-link{ text-decoration:none; }
-.card-link .card{
-  transition:transform .2s ease-in-out, box-shadow .2s ease-in-out;
+.card-link {
+  text-decoration: none;
 }
-.card-link:hover .card{
-  transform:translateY(-5px);
-  box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;
+.card-link .card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.card-link:hover .card {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Botão flutuante no canto inferior direito */
+/* CSS ATUALIZADO DO BOTÃO
+  - Removido position: fixed, bottom, right, z-index
+  - Reduzido o border-radius (mais retangular)
+  - Reduzido o padding (menor)
+*/
 #btnSemana2 {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  border-radius: 50px;
-  padding: 0.75rem 1.5rem;
+  /* Deixando mais retangular (reduzindo o raio da borda) */
+  border-radius: 0.5rem; /* (8px) - ajuste se desejar */
+
+  /* Deixando um pouco menor (reduzindo o padding) */
+  padding: 0.5rem 1rem;
+
   font-weight: 600;
-  z-index: 1050;
   transition: all 0.3s ease-in-out;
 }
 
 #btnSemana2:hover {
-  transform: translateX(5px);
+  /* Mudei o efeito de hover para um 'lift' sutil */
+  transform: translateY(-2px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 /* --- Seção Brainstorm --- */
-#brainstorm img {
-  border-radius: 8px;
-  max-width: 100%;
+#brainstorm .card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brainstorm-img {
+  max-width: 75%;
   height: auto;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  margin: 0 auto;
+  display: block;
   transition: transform 0.3s ease-in-out;
-}
-
-#brainstorm img:hover {
-  transform: scale(1.02);
-}
-
-#brainstorm p {
-  color: var(--ifsp-gray);
-  font-size: 0.95rem;
 }

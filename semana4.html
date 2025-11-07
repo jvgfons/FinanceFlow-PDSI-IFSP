@@ -35,7 +35,7 @@
       try {
         const response = await fetch("src/sequencia.mmd");
         const mmdText = await response.text();
-        const container = document.querySelector("#mermaid-diagram");
+        const container = document.querySelector("#mermaid-diagram-seq");
         container.textContent = mmdText;
         mermaid.init(undefined, container);
       } catch (error) {
@@ -73,12 +73,26 @@
 
     <main class="container my-5">
 
-      <h1 class="text-center text-success mb-4">
-        Estrutura do Sistema — Diagrama de sequencia
-      </h1>
+      <section id="digramaSeq" class="mb-5">
+        <h2 class="h4 fw-bold mb-3 section-title">Diagrama de Sequência - Registrar Transação</h2> 
+
+      
 
       <!-- Aqui o diagrama será inserido -->
-      <div id="mermaid-diagram" class="mermaid text-center"></div>
+      <div id="mermaid-diagram-seq" class="mermaid text-center"></div>
+
+
+
+    </section>    
+
+    <section id="digramaSeq" class="mb-5">
+      <h2 class="h4 fw-bold mb-3 section-title">Diagrama de Estados - Classe Transação</h2> 
+
+    
+
+    </section>
+
+
 
       
 

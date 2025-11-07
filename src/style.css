@@ -81,3 +81,11 @@ body {
   display: block;
   transition: transform 0.3s ease-in-out;
 }
+
+.mermaid {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 900px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}

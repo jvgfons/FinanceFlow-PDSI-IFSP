@@ -25,6 +25,25 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
 
+  <!-- Mermaid via módulo ES -->
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: false, theme: "forest" });
+
+    // Quando a página carregar, busca o arquivo MMD e renderiza
+    window.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const response = await fetch("src/sequencia.mmd");
+        const mmdText = await response.text();
+        const container = document.querySelector("#mermaid-diagram");
+        container.textContent = mmdText;
+        mermaid.init(undefined, container);
+      } catch (error) {
+        console.error("Erro ao carregar o diagrama:", error);
+      }
+    });
+  </script>
+
   <body>
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg bg-light">
@@ -50,15 +69,18 @@
       </nav>
     </header>
 
+          
+
     <main class="container my-5">
 
-      <section class="d-flex justify-content-center align-items-center" style="min-height: 45vh;">
-        <div class="text-center">
-          <i class="bi bi-tools display-4 text-warning d-block mb-3"></i>
-          <h1 class="h3 fw-bold text-success-emphasis mb-2">Página em manutenção</h1>
-          <p class="text-muted">Em breve você verá aqui conteúdos desta semana.</p>
-        </div>
-      </section>
+      <h1 class="text-center text-success mb-4">
+        Estrutura do Sistema — Diagrama de sequencia
+      </h1>
+
+      <!-- Aqui o diagrama será inserido -->
+      <div id="mermaid-diagram" class="mermaid text-center"></div>
+
+      
 
       <!-- Navegação entre semanas -->
       <div class="d-flex justify-content-between align-items-center mt-4">

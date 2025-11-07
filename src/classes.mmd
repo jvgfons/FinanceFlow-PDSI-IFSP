@@ -2,53 +2,55 @@
 config:
   layout: elk
   look: neo
-  
 ---
 classDiagram
 direction LR
+
     class Relatorio {
         -String periodo
         -double totalDespesas
         -double totalReceitas
-        +gerarRelatorioCategoria()
-        +calcularSaldoAtual()
-        +filtrarPorPeriodo()
-        +pesquisarPorDescricao()
+        +gerarRelatorioCategoria()void
+        +calcularSaldoAtual()double
+        +filtrarPorPeriodo()List<Transacao>
+        +pesquisarPorDescricao()List<Transacao>
     }
+
     class Usuario {
-	    -String nome
-	    -String email
-	    -String senha
-	    +cadastrarUsuario()
-	    +autenticarUsuario()
+        -String nome
+        -String email
+        -String senha
+        +cadastrarUsuario()boolean
+        +autenticarUsuario()boolean
     }
+
     class Transacao {
-	    -int id
-	    -double valor
-	    -Date data
-	    -String descricao
-	    -String tipo
-	    +registrarTransacao()
-	    +editarTransacao()
-	    +excluirTransacao()
+        -int id
+        -double valor
+        -Date data
+        -String descricao
+        -String tipo
+        +registrarTransacao()void
+        +editarTransacao()void
+        +excluirTransacao()void
     }
+
     class Categoria {
         -int id
         -String nome
         -String tipo
         -boolean favorita
-        +criarCategoria()
-        +listarCategorias()
-        +definirFavorita()
-        +removerFavorita()
-    }
-    class Notificacao {
-	    -String mensagem
-	    -Date dataEnvio
-	    +enviarNotificacao()
+        +criarCategoria()void
+        +listarCategorias()List<Categoria>
+        +definirFavorita()void
+        +removerFavorita()void
     }
 
-    
+    class Notificacao {
+        -String mensagem
+        -Date dataEnvio
+        +enviarNotificacao()void
+    }
 
     Usuario "*" --> "1" Transacao : "possui"
     Relatorio "*" --> "1" Transacao : "contém"

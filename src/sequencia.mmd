@@ -1,0 +1,25 @@
+---
+config:
+  theme: dark
+---
+sequenceDiagram
+        participant Usuário
+        participant Transação
+        participant Categoria
+        participant Notificação
+        participant Relatório
+        Usuário ->> Transação: Solicita "Registrar Transação"
+        Transação ->> Usuário: Solicita dados (valor, tipo, descrição, categoria)
+        Usuário ->> Transação: Preenche dados e confirma
+        Transação ->> Transação: Valida informações
+        alt Dados inválidos
+            Transação -->> Usuário: Solicita correção
+            Usuário ->> Transação: Fornece dados corrigidos
+        end
+        Transação ->> Transação: Cria transação
+        Transação ->> Categoria: Associa categoria
+        Transação ->> Relatório: Atualiza relatórios
+        Relatório ->> Relatório: Recalcula totais por categoria
+        Transação ->> Notificação: Solicita notificação de confirmação
+        Notificação -->> Usuário: ENvia notificação por push
+        Transação -->> Usuário: Retorna mensagem de sucesso

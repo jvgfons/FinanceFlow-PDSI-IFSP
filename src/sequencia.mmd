@@ -1,7 +1,3 @@
----
-config:
-  theme: dark
----
 sequenceDiagram
         participant Usuário
         participant Transação
@@ -23,3 +19,4 @@ sequenceDiagram
         Transação ->> Notificação: Solicita notificação de confirmação
         Notificação -->> Usuário: ENvia notificação por push
         Transação -->> Usuário: Retorna mensagem de sucesso
+

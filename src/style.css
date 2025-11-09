@@ -7,7 +7,7 @@
 
 html,
 body {
-  height: 100%;
+    position: relative;
 }
 
 body {
@@ -19,6 +19,15 @@ body {
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+/* Compensa a altura da navbar fixa quando navega por âncoras */
+:root { --nav-h: 90px; }         /* valor de fallback */
+section { scroll-margin-top: var(--nav-h); }
+
+/* Só por garantia, mantém a navbar por cima */
+.navbar { z-index: 1030; }
+
+
+
 
 /* Título de seção com barra lateral verde */
 .section-title {
@@ -86,6 +95,44 @@ body {
   margin: 2rem auto;
   padding: 1rem;
   max-width: 900px;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   border-radius: 8px;
+}
+
+
+/* ... (outros estilos) ... */
+
+/* Box do diagrama: área confortável e sem scroll interno */
+
+.diagram-box {
+  width: 100%;
+  min-height: 450px;          /* Mantenha uma altura razoável */
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;           /* ESSENCIAL: "corta" o zoom que transborda */
+}
+
+/* --- controle de escala centralizada --- */
+:root {
+  --diagram-scale: 1.35;      /* ↑ aumente/diminua aqui (1.0 = original) */
+}
+
+#mermaid-diagram-est svg {
+  display: block;
+  height: auto;
+  max-width: none;
+  transform: scale(1.0); /* Estado inicial (tamanho normal) */
+  transition: transform 0.2s ease-out; /* Animação mais rápida */
+  /* NÃO defina o transform-origin aqui, o JS vai cuidar disso */
+}
+
+#mermaid-diagram-est:hover svg {
+  transform: scale(1.5); /* Nível do zoom (200%). Ajuste como quiser! */
+}
+
+/* em telas pequenas, volta para o tamanho normal */
+@media (max-width: 768px) {
+  :root { --diagram-scale: 1.0; }
 }

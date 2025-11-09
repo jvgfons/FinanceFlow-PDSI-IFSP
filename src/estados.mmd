@@ -1,0 +1,27 @@
+%% Arquivo: src/estados.mmd
+%% Diagrama de Estados — Classe Transação (FinanceFlow)
+stateDiagram-v2
+  direction LR
+
+  [*] --> Nova
+  Nova --> Registrada : registrarTransacao()
+
+  Registrada --> EmEdicao : editarTransacao()
+  EmEdicao --> Registrada : editarTransacao()
+
+  Registrada --> Excluida : excluirTransacao()
+  Excluida --> [*]
+
+  %% Notas (apenas leitura, não mudam estado — métodos da classe Relatorio)
+  note right of Registrada
+    Ações de leitura (Relatorio):
+    gerarRelatorioCategoria()
+    calcularSaldoAtual()
+    filtrarPorPeriodo()
+    pesquisarPorDescricao()
+  end note
+
+  %% Subestado opcional para "Nova"
+  state Nova {
+    [*] --> aguardandoDados
+  }

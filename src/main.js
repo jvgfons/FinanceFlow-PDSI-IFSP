@@ -25,3 +25,42 @@ btnConcluido.addEventListener('click', () => {
 btnTopo.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+function setupScrollSpy() {
+  const nav = document.querySelector('header .navbar');
+  if (!nav || typeof bootstrap === 'undefined') return;
+
+  const h = Math.ceil(nav.getBoundingClientRect().height) + 10; // folguinha
+  document.documentElement.style.setProperty('--nav-h', `${h}px`);
+
+  // Destroi instância anterior se existir e recria com offset correto
+  const prev = bootstrap.ScrollSpy.getInstance(document.body);
+  if (prev) prev.dispose();
+
+  new bootstrap.ScrollSpy(document.body, {
+    target: '#navbarNav',
+    offset: h
+  });
+}
+
+// Inicializa e mantém atualizado
+document.addEventListener('DOMContentLoaded', () => {
+  setupScrollSpy();
+  // Fecha o menu colapsado ao clicar nos links (mobile)
+  const nav = document.getElementById('navbarNav');
+  nav?.querySelectorAll('a.nav-link[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const c = bootstrap.Collapse.getInstance(nav);
+      if (c) c.hide();
+    });
+  });
+});
+
+window.addEventListener('load', setupScrollSpy);
+window.addEventListener('resize', () => {
+  // Debounce simples
+  clearTimeout(window.__spyRsz);
+  window.__spyRsz = setTimeout(setupScrollSpy, 150);
+});
+
+

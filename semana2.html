@@ -24,23 +24,40 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
 
-  <body>
+  <!-- ScrollSpy ativo no body; o offset é calculado no main.js -->
+  <body data-bs-spy="scroll" data-bs-target="#navbarNav" tabindex="0">
     <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" aria-label="Menu de seções da Semana 2">
         <div class="container">
           <a class="navbar-brand fw-bold text-success" href="index.html">
             <i class="bi bi-diagram-3-fill me-2"></i>Projeto de Sistemas
           </a>
+
           <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Alternar navegação"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <!-- Sem índices no topo; cada semana terá seus próprios tópicos -->
-          <div class="collapse navbar-collapse" id="navbarNav"></div>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#historias">Histórias de Usuário</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#descricao-textual">Descrição Textual</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#diagrama-casos-uso">Diagrama de Casos de Uso</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
@@ -231,15 +248,13 @@
         </div>
       </section>
 
-
-      <section class="mb-5">
+      <section id="diagrama-casos-uso" class="mb-5">
         <h2 class="h4 fw-bold mb-3 section-title">Diagrama de Casos de Uso</h2>
         <div class="card shadow-sm p-3">
           <img src="src/casosdeusov2.png" alt="Diagrama de Casos de Uso - FinanceFlow"
                class="img-fluid rounded shadow-sm border" />
         </div>
       </section>
-
 
       <!-- Navegação entre semanas -->
       <div class="d-flex justify-content-between align-items-center mt-4">
